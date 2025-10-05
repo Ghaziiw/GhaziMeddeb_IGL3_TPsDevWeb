@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="input">
+        <input type="text" id="task-search" placeholder="Search task">
+        <br>
+        <button id="search-button" onclick="searchTasks()">Search</button>
+        <button id="clear-search-button" onclick="renderTaskList()">Clear Search</button>
+        <br><br>
+        <input type="text" id="task-input" placeholder="Enter a new task">
+    </div>
+    <div class="buttons">
+        <button id="add-button" onclick="addTask()">Add Task</button>
+        <button id="clear-button" onclick="deleteAllTasks()">Clear All Tasks</button>
+    </div>
+    <!-- liste vide-->
+    <ul id="task-list">
+    </ul>
+</body>
+</html>
