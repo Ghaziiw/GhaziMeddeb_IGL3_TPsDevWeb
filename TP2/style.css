@@ -1,0 +1,24 @@
+#add-button, #clear-button, #search-button, #clear-search-button {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-button:hover, #clear-button:hover, #search-button:hover, #clear-search-button:hover {
+    background-color: #1d8176;
+    transition: 300ms;
+}
+
+#task-input, #task-search {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
