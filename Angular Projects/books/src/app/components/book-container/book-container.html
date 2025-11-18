@@ -1,0 +1,43 @@
+<div class="container-root">
+    <div class="container">
+
+        <div class="form-card">
+            <app-book-form
+                [categories]="categories"
+                [bookToEdit]="bookToEdit"
+                (bookCreated)="addBook($event)"
+                (bookUpdated)="updateBook($event)">
+            </app-book-form>
+        </div>
+
+        <div class="table-panel">
+
+            <div class="table-controls">
+                <input
+                    type="search"
+                    placeholder="Rechercher..."
+                    [(ngModel)]="searchTerm" />
+
+                <select [(ngModel)]="sortBy">
+                    <option value="none">Aucun tri</option>
+                    <option value="category">Catégorie (A → Z)</option>
+                    <option value="available">Disponible en premier</option>
+                </select>
+
+                <div class="counter">
+                    Total: {{ totalBooks }} 
+                </div>
+            </div>
+            <div class="books-container">
+                <app-book-list
+                    [books]="filteredBooks"
+                    (edit)="onEditRequest($event)"
+                    (delete)="deleteBook($event)">
+                </app-book-list>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
