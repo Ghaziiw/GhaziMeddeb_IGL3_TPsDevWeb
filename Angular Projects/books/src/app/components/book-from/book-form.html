@@ -1,0 +1,108 @@
+<div class="container">
+    <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+
+        <input type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            [(ngModel)]="Books.title"
+            #titleRef="ngModel"
+            required
+            minlength="3"
+            pattern=".*\D.*">
+        <div *ngIf="(titleRef.invalid && titleRef.dirty)">
+            <small *ngIf="titleRef.errors?.['required']">Le titre est requis.</small>
+            <small *ngIf="titleRef.errors?.['minlength']">Min 3 caractères.</small>
+            <small *ngIf="titleRef.errors?.['pattern']">Le titre ne peut pas être composé uniquement de chiffres.</small>
+        </div>
+
+        <input type="text"
+            name="author"
+            id="author"
+            placeholder="Author"
+            [(ngModel)]="Books.author"
+            #authorRef="ngModel"
+            required
+            minlength="3">
+        <div *ngIf="(authorRef.invalid && authorRef.dirty)">
+            <small *ngIf="authorRef.errors?.['required']">L'auteur est requis.</small>
+            <small *ngIf="authorRef.errors?.['minlength']">Min 3 caractères.</small>
+        </div>
+
+        <input type="email"
+            name="publisherEmail"
+            id="publisherEmail"
+            placeholder="Publisher Email"
+            [(ngModel)]="Books.publisherEmail"
+            #emailRef="ngModel"
+            required
+            email>
+        <div *ngIf="(emailRef.invalid && emailRef.dirty)">
+            <small *ngIf="emailRef.errors?.['required']">Email requis.</small>
+            <small *ngIf="emailRef.errors?.['email']">Email invalide.</small>
+        </div>
+
+        <input type="text"
+            name="publisherPhone"
+            id="publisherPhone"
+            placeholder="Phone (Tunisian, 8 digits)"
+            [(ngModel)]="Books.publisherPhone"
+            #phoneRef="ngModel"
+            pattern="^[0-9]{8}$">
+        <div *ngIf="(phoneRef.invalid && phoneRef.dirty)">
+            <small *ngIf="phoneRef.errors?.['pattern']">Doit contenir exactement 8 chiffres.</small>
+        </div>
+
+        <input type="date"
+            name="releaseDate"
+            id="releaseDate"
+            [(ngModel)]="Books.releaseDate"
+            #dateRef="ngModel"
+            required
+            [attr.max]="01/01/1901">
+        <div *ngIf="(dateRef.invalid && dateRef.dirty)">
+            <small *ngIf="dateRef.errors?.['required']">La date de sortie est requise.</small>
+        </div>
+        <div *ngIf="(dateRef.invalid && dateRef.dirty)">
+            <small>La date doit être après 1900.</small>
+        </div>
+
+        <select name="category"
+            id="category"
+            [(ngModel)]="Books.category"
+            #catRef="ngModel"
+            required>
+            <option value="">Select a category</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+        
+        <div *ngIf="(catRef.invalid && catRef.dirty)">
+            <small *ngIf="catRef.errors?.['required']">La catégorie est requise.</small>
+        </div>
+
+        <label>
+            <input type="checkbox"
+                name="isAvailable"
+                id="isAvailable"
+                [(ngModel)]="Books.isAvailable">
+                Available
+        </label>
+
+        <input type="number"
+            name="stock"
+            id="stock"
+            placeholder="Stock (optional)"
+            [(ngModel)]="Books.stock"
+            #stockRef="ngModel"
+            min="0">
+        <div *ngIf="(stockRef.invalid && stockRef.dirty)">
+            <small *ngIf="stockRef.errors?.['min']">Le stock doit être ≥ 0.</small>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:center">
+            <button type="submit">{{ isEdit ? 'Mettre à jour' : 'Ajouter' }}</button>
+            <button type="button" *ngIf="isEdit" (click)="cancelEdit(bookForm)">Annuler</button>
+        </div>
+
+    </form>
+</div>
