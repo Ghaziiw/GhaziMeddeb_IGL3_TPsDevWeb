@@ -1,0 +1,34 @@
+<div class="book-list-wrap">
+    <table class="book-table" role="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Disponible</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let book of books; trackBy: trackById">
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.category }}</td>
+                <td>
+                    <span *ngIf="book.isAvailable; else no">Oui</span>
+                    <ng-template #no>Non</ng-template>
+                </td>
+                <td class="actions">
+                    <button type="button" (click)="onEdit(book)">Edit</button>
+                    <button type="button" (click)="delete.emit(book.id)">Delete</button>
+                </td>
+            </tr>
+
+        <!-- message si vide -->
+            <tr *ngIf="books.length === 0">
+                <td colspan="5" class="empty">Aucun livre disponible.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
