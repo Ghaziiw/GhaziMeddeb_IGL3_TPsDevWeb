@@ -1,0 +1,19 @@
+<div>
+  <h2>Profil Utilisateur</h2>
+  <form>
+    <div>
+      <label for="prenom">Prénom:</label>
+      <input id="prenom" [(ngModel)]="utilisateur.prenom" name="prenom" placeholder="Entrez votre prénom">
+    </div>
+    <div>
+      <label for="age">Âge:</label>
+      <input id="age" type="number" [(ngModel)]="utilisateur.age" name="age" placeholder="Entrez votre âge">
+    </div>
+  </form>
+  
+  <div>
+    <h3>Valeurs saisies:</h3>
+    <p>Prénom: {{ utilisateur.prenom }}</p>
+    <p>Âge: {{ utilisateur.age }}</p>
+  </div>
+</div>

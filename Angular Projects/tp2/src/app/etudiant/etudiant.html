@@ -1,0 +1,36 @@
+<div class="etudiant-container">
+  <h2>{{etudiant.name}}</h2>
+  <div><strong>ID:</strong> {{etudiant.id}}</div>
+  
+  <div>
+    <label><strong>Name:</strong>
+      <input [(ngModel)]="etudiant.name" placeholder="name" name="studentName"/>
+    </label>
+  </div>
+  
+  <div><strong>Lastname:</strong> {{etudiant.lastname}}</div>
+  <div><strong>Classe:</strong> {{etudiant.classe}}</div>
+  
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td><strong>Average</strong></td>
+      <td>{{etudiant.average}}</td>
+    </tr>
+    <tr>
+      <td><strong>Birthdate</strong></td>
+      <td>{{etudiant.birthdate}}</td>
+    </tr>
+    <tr>
+      <td><strong>Tuition</strong></td>
+      <td>{{etudiant.tuition}}</td>
+    </tr>
+    <tr>
+      <td><strong>Success Rate</strong></td>
+      <td>{{etudiant.percentage}}</td>
+    </tr>
+  </table>
+</div>
