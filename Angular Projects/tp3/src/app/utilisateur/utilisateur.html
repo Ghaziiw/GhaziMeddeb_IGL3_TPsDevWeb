@@ -1,0 +1,6 @@
+<div>
+  <h3>Two-Way Data Binding</h3>
+  <label>Votre nom : </label>
+  <input [(ngModel)]="nom" placeholder="Entrez votre nom">
+  <p>Bonjour <strong>{{ nom || 'visiteur' }}</strong> !</p>
+</div>

@@ -1,0 +1,9 @@
+<p>test works!</p>
+<form #monForm=ngForm>
+    <div>
+        nom : <input type=text name=nom [(ngModel)]="personne.nom" required>
+    </div>
+    <div>
+        prenom : <input type=text name=prenom [(ngModel)]="personne.prenom" required>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+<h1>TP 3 - Data Binding et Interpolation</h1>
+
+<app-bienvenue></app-bienvenue>
+<hr>
+
+<app-produit 
+  [nomProduit]="'iPhone 15 Pro'" 
+  (ajouterAuPanier)="recevoirAjoutPanier($event)">
+</app-produit>
+<hr>
+
+<app-utilisateur></app-utilisateur>
+<hr>
+
+<app-panier [articles]="panier"></app-panier>

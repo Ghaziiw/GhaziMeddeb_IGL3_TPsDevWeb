@@ -1,0 +1,22 @@
+<div class="produit-card"
+     [ngClass]="{'en-stock': enStock, 'hors-stock': !enStock}"
+     [ngStyle]="{'opacity': enStock ? '1' : '0.5'}">
+
+  <h3>{{ nomProduit }}</h3>
+  
+  <img [src]="imageUrl" alt="Produit" width="200">
+
+  <p>Prix : {{ prix | currency:'EUR':'symbol':'1.2-2' }}</p>
+
+  <p [class.text-success]="enStock" [class.text-danger]="!enStock">
+    {{ enStock ? 'En stock' : 'Rupture de stock' }}
+  </p>
+
+  <button (click)="afficherAlerte()">Alerte simple</button>
+  <button (click)="ajouterProduit()" [disabled]="!enStock">
+    Ajouter au panier
+  </button>
+  <button (click)="toggleStock()">
+    Basculer stock ({{ enStock ? 'dispo' : 'indisponible' }})
+  </button>
+</div>

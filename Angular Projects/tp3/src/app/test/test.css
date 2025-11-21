@@ -1,0 +1,7 @@
+.ng-untouched:not(form){
+    border-left: 5px solid #f39c12;
+}
+
+.ng-valid:not(form){
+    border-left: 5px solid #e74c3c;
+}

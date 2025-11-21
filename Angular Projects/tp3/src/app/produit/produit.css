@@ -1,0 +1,21 @@
+.produit-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.en-stock {
+  border: 3px solid green;
+  background-color: #e0ffe0;
+}
+
+.hors-stock {
+  border: 3px solid red;
+  background-color: #ffe0e0;
+}
+
+.text-success { color: green; font-weight: bold; }
+.text-danger { color: red; font-weight: bold; }
